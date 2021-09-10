@@ -1,6 +1,7 @@
 package com.cejajuan.flixster.features.moviesfeed;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,8 +59,18 @@ public class MovieAdaptor extends RecyclerView.Adapter<MovieAdaptor.ViewHolder> 
         public void bind(Context context, Movie movie) {
             tvTitle.setText(movie.getTitle());
             tvOverview.setText(movie.getOverview());
+
+            // determine the image to use based on the orientation
+            String imageUrl;
+            int orientation = context.getResources().getConfiguration().orientation;
+            if ( orientation == Configuration.ORIENTATION_PORTRAIT)
+                imageUrl = movie.getPosterUrl();
+            else
+                imageUrl = movie.getBackdropPath();
+
+            // set the image view using the Glide library
             Glide.with(context)
-                    .load(movie.getPosterUrl())
+                    .load(imageUrl)
                     .into(imgPoster);
         }
     }

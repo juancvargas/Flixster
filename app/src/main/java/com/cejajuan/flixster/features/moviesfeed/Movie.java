@@ -1,7 +1,5 @@
 package com.cejajuan.flixster.features.moviesfeed;
 
-import com.cejajuan.flixster.BuildConfig;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -12,10 +10,10 @@ import java.util.List;
 // This class will extract and encapsulate a movie returned from the movie
 // database API's JSON response.
 public class Movie {
-    private String posterPath;
-    private String title;
-    private String overview;
-    private String backdropPath;
+    private final String posterPath;
+    private final String title;
+    private final String overview;
+    private final String backdropPath;
 
     public Movie(JSONObject jsonObject) throws JSONException {
         posterPath = jsonObject.getString("poster_path");
@@ -35,11 +33,9 @@ public class Movie {
         return movies;
     }
 
-    // getters
-
     // returned the full poster path the member variable contains a relative path
     public String getPosterUrl() {
-        return String.format("https://image.tmdb.org/t/p/w342/%s", posterPath);
+        return String.format("https://image.tmdb.org/t/p/w342%s", posterPath);
     }
 
     public String getTitle() {
@@ -51,6 +47,6 @@ public class Movie {
     }
 
     public String getBackdropPath() {
-        return String.format("https://image.tmdb.org/t/p/w300/%s", backdropPath);
+        return String.format("https://image.tmdb.org/t/p/w300%s", backdropPath);
     }
 }

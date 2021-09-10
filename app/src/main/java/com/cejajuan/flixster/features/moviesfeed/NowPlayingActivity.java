@@ -1,6 +1,8 @@
 package com.cejajuan.flixster.features.moviesfeed;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -31,8 +33,19 @@ public class NowPlayingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_now_playing);
 
-        // create a movies arraylist here since the client.get request is async
+        // create a movies arraylist here since the client.get() is an async call
         movies = new ArrayList<>();
+
+        // Bind the adaptor to the recycler view
+
+        // Lookup the recyclerview in activity layout
+        RecyclerView rvMoviesFeed = (RecyclerView) findViewById(R.id.rvMoviesFeed);
+        // Create adapter passing in the sample user data
+        MovieAdaptor adapter = new MovieAdaptor(movies);
+        // Attach the adapter to the recyclerview to populate items
+        rvMoviesFeed.setAdapter(adapter);
+        // Set layout manager to position the items
+        rvMoviesFeed.setLayoutManager(new LinearLayoutManager(this));
 
         // create an async http object and add api_key query string param to url
         AsyncHttpClient client = new AsyncHttpClient();
@@ -48,7 +61,7 @@ public class NowPlayingActivity extends AppCompatActivity {
                     movies.addAll(Movie.fromJsonArray(json.jsonObject.getJSONArray("results")));
 
                     // let the adaptor know that the data set changed
-
+                    adapter.notifyDataSetChanged();
                 } catch (JSONException e) {
                     Log.e(TAG, "Error getting results array from API. \n" + e);
                 }

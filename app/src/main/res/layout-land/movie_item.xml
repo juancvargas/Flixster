@@ -7,7 +7,7 @@
 
     <ImageView
         android:id="@+id/imgPoster"
-        android:layout_width="@dimen/poster_width"
+        android:layout_width="@dimen/poster_width_land"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
