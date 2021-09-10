@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="font_size">16sp</dimen>
-    <dimen name="title_font_size">20sp</dimen>
-    <dimen name="overview_font_size">12sp</dimen>
+    <dimen name="title_font_size">24sp</dimen>
+    <dimen name="overview_font_size">14sp</dimen>
     <dimen name="poster_height">300dp</dimen>
     <dimen name="poster_width">300dp</dimen>
+    <dimen name="poster_margin">10dp</dimen>
+    <dimen name="title_margin_top">10dp</dimen>
+    <dimen name="title_margin_end">10dp</dimen>
+    <dimen name="title_margin_start">5dp</dimen>
+    <dimen name="overview_margin_top">5dp</dimen>
+    <dimen name="overview_margin_end">10dp</dimen>
+    <dimen name="overview_margin_start">5dp</dimen>
 </resources>

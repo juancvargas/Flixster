@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imgPoster"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="@dimen/poster_margin"
+        android:layout_marginTop="@dimen/poster_margin"
+        android:contentDescription="Image of the Movie Poster."
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="@dimen/title_margin_start"
+        android:layout_marginTop="@dimen/title_margin_top"
+        android:layout_marginEnd="@dimen/title_margin_end"
+        android:layout_toEndOf="@+id/imgPoster"
+        android:textSize="@dimen/title_font_size"
+        tools:text="Don't Breathe 2" />
+
+    <TextView
+        android:id="@+id/txtOverview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtTitle"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="@dimen/overview_margin_start"
+        android:layout_marginTop="@dimen/overview_margin_top"
+        android:layout_marginEnd="@dimen/overview_margin_end"
+        android:layout_toEndOf="@+id/imgPoster"
+        android:textSize="@dimen/overview_font_size"
+        tools:text="The Blind Man has been hiding out for several years in an isolated cabin and has taken in and raised a young girl orphaned from a devastating house fire. Their quiet life together is shattered when a group of criminals kidnap the girl, forcing the Blind Man to leave his safe haven to save her." />
+</RelativeLayout>
