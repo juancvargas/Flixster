@@ -38,7 +38,7 @@ public class Movie {
     // getters
 
     // returned the full poster path the member variable contains a relative path
-    public String getPosterUri() {
+    public String getPosterUrl() {
         return String.format("https://image.tmdb.org/t/p/w342/%s", posterPath);
     }
 
