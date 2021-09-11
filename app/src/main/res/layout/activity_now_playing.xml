@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dodger_blue"
+    android:paddingStart="@dimen/layout_padding_left"
+    android:paddingEnd="@dimen/layout_padding_right"
     tools:context=".features.moviesfeed.NowPlayingActivity">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -13,6 +16,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
-        android:layout_marginStart="-1dp"
-        android:layout_marginTop="-2dp" />
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:background="@color/light_silver" />
 </android.widget.RelativeLayout>

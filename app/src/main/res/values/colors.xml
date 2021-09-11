@@ -8,6 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="dodger_blue">#005A9C</color>
-    <color name="silver">#A5ACAF</color>
+    <color name="light_silver">#CECAD4</color>
     <color name="red">#EF3E42</color>
 </resources>
