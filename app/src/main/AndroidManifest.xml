@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cejajuan.flixster">
+    <!-- this are the permissions needed by the App -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
-    <!--this are the permissions needed by the App-->
-    <uses-permission android:name="android.permission.INTERNET"/>
-
+    <queries>
+        <intent>
+            <action android:name="com.google.android.youtube.api.service.START" />
+        </intent>
+    </queries>
 
     <application
         android:allowBackup="true"
@@ -14,9 +18,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Flixster">
         <activity
+            android:name=".features.moviedetails.MovieDetailsActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <activity
             android:name=".features.moviesfeed.NowPlayingActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

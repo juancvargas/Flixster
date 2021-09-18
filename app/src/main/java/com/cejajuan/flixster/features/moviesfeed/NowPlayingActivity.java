@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -55,7 +54,6 @@ public class NowPlayingActivity extends AppCompatActivity {
 
         // make the api request to the Movie database API for now playing movies
         client.get(NOW_PLAYING_URL , params, new JsonHttpResponseHandler() {
-            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onSuccess(int statusCode, Headers headers, JSON json) {
                 try {
