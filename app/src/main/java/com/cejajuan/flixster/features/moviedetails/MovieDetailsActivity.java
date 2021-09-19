@@ -33,7 +33,7 @@ public class MovieDetailsActivity extends YouTubeBaseActivity {
     private final String LANGUAGE_CODE = "en-US";
     private static final String YT_API_KEY = BuildConfig.YOUTUBE_KEY;
     final String TAG = "MovieDetailsActivity";
-    final float GOOD_MOVIE_RATING = 7.0f;
+    final float GOOD_MOVIE_RATING = 7.5f;
     TextView tvTitle;
     TextView tvOverview;
     RatingBar ratingBar;

@@ -77,13 +77,34 @@ public class MovieAdaptor extends RecyclerView.Adapter<MovieAdaptor.ViewHolder> 
             tvTitle.setText(movie.getTitle());
             tvOverview.setText(movie.getOverview());
 
-            // determine the image to use based on the orientation
+            // determine the image to use based on the orientation and also
+            // register the click listener for the whole row which is the relative layout
+            // that wraps the movie items need to account for the different orientations
             String imageUrl;
             int orientation = context.getResources().getConfiguration().orientation;
-            if (orientation == Configuration.ORIENTATION_PORTRAIT)
+            if (orientation == Configuration.ORIENTATION_PORTRAIT) {
                 imageUrl = movie.getPosterUrl();
-            else
+                rlMoviesItem.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        // navigate to the new activity
+                        Intent intent = new Intent(context, MovieDetailsActivity.class);
+                        intent.putExtra(MOVIE_KEY, Parcels.wrap(movie));
+                        context.startActivity(intent);
+                    }
+                });
+            } else {
                 imageUrl = movie.getBackdropPath();
+                rlMoviesItemLand.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        // navigate to the new activity
+                        Intent intent = new Intent(context, MovieDetailsActivity.class);
+                        intent.putExtra(MOVIE_KEY, Parcels.wrap(movie));
+                        context.startActivity(intent);
+                    }
+                });
+            }
 
             // set the image view using the Glide library round the corners using the
             // Glide transformations library
@@ -95,15 +116,6 @@ public class MovieAdaptor extends RecyclerView.Adapter<MovieAdaptor.ViewHolder> 
                     .load(imageUrl)
                     .transform(roundedCorners)
                     .into(imgPoster);
-
-            // register the click listener for the whole row which is the relative layout
-            // that wraps the movie items
-            rlMoviesItem.setOnClickListener(view -> {
-                // navigate to the new activity
-                Intent intent = new Intent(context, MovieDetailsActivity.class);
-                intent.putExtra(MOVIE_KEY, Parcels.wrap(movie));
-                context.startActivity(intent);
-            });
         }
     }
 }
